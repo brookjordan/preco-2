@@ -1,0 +1,9 @@
+<h1>
+  Hello
+  {{#each model.payload as |person|}}
+    {{person.name}}
+  {{~/each~}}
+  !!
+</h1>
+
+{{outlet}}
