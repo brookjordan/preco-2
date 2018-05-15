@@ -1,5 +1,33 @@
-body {
-  h1 {
-    font-family: sans-serif;
-  }
-}
+// Settings: @import "./settings/";
+@import "./settings/base-colors.scss";
+@import "./settings/fonts.scss";
+@import "./settings/sizing.scss";
+
+// Tools: @import "./tools/";
+@import "./tools/sizing.scss";
+@import "./tools/text.scss";
+@import "./tools/box.scss";
+@import "./tools/clearfix.scss";
+
+// Elements @import "./elements/";
+@import "./elements/resets";
+@import "./elements/base";
+
+// Components @import "./components/";
+@import "./components/app-structure";
+@import "./components/chat-view";
+@import "./components/company-section";
+@import "./components/contact-section";
+@import "./components/copyright-section";
+@import "./components/font-awesome/fa-regular";
+@import "./components/font-awesome/icons";
+@import "./components/main-header";
+@import "./components/main-nav";
+@import "./components/markdown";
+@import "./components/preco-logo";
+@import "./components/project-section";
+@import "./components/section-header";
+@import "./components/splash-screen";
+@import "./components/text-chat";
+@import "./components/video-container";
+@import "./components/videos";

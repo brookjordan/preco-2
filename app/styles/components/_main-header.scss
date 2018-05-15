@@ -1,0 +1,105 @@
+.main-header {
+  $main-header-padding: 2;
+  $main-header-line-height: 3;
+
+  &--hide-dynamically {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 0;
+  }
+
+  &__wrapper {
+    height: g($main-header-padding + $main-header-line-height + $main-header-padding);
+    pointer-events: none;
+  }
+
+  &__content {
+    transform-origin: 50% 0;
+    width: 100%;
+    padding: g($main-header-padding) $g-5;
+    background-color: $gray-8;
+
+    transition: transform 0.15s ease-in,
+                background-color 0.15s;
+  }
+
+  &--hidden &__content {
+    transform: translateY(-100%);
+    transition: transform 0.15s ease-out;
+  }
+
+  &__title {
+    width: calc(100% - #{ $g-4 });
+    max-width: g(147);
+    padding: 0 $g-3;
+    margin: 0 auto;
+    line-height: g($main-header-line-height);
+    color: $gray-3;
+    font-family: Arvo;
+    font-weight: 800;
+    font-size: 24px;
+    pointer-events: initial;
+
+    transition: color 0.15s;
+  }
+
+  &--theme-dark &__content {
+    background-color: $gray-2;
+  }
+
+  &--theme-dark &__title {
+    color: $gray-6;
+  }
+
+  .preco-logo {
+    &__dot,
+    &__bar {
+      background-color: $gray-3;
+    }
+  }
+}
+
+@media (min-height: 500px) {
+  $main-header-padding: 3;
+  $main-header-line-height: 3;
+
+  .main-header {
+    &__wrapper {
+      height: g($main-header-padding + $main-header-line-height + $main-header-padding);
+    }
+
+    &__content {
+      padding-top: g($main-header-padding);
+      padding-bottom: g($main-header-padding);
+    }
+
+    &__title {
+      line-height: g($main-header-line-height);
+      font-size: 26px;
+    }
+  }
+}
+
+@media (min-height: 750px) {
+  $main-header-padding: 4;
+  $main-header-line-height: 4;
+
+  .main-header {
+    &__wrapper {
+      height: g($main-header-padding + $main-header-line-height + $main-header-padding);
+    }
+
+    &__content {
+      padding-top: g($main-header-padding);
+      padding-bottom: g($main-header-padding);
+    }
+
+    &__title {
+      line-height: g($main-header-line-height);
+      font-size: 30px;
+    }
+  }
+}

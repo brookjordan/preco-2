@@ -1,9 +1,21 @@
-<h1>
-  Hello
-  {{#each model.payload as |person|}}
-    {{person.name}}
-  {{~/each~}}
-  !!
+<h1 id="home-hello">
+  Hello,
 </h1>
 
 {{outlet}}
+
+<p>
+  We have so many people…
+</p>
+
+<ul style="height: 200%">
+  {{#each model as |person|}}
+    <li>
+      {{#link-to 'home.person' person.id}}
+        {{ person.fullName }}
+      {{/link-to}}
+    </li>
+  {{else}}
+    <li>Lol, jowks!</li>
+  {{/each}}
+</ul>

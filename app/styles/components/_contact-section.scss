@@ -1,0 +1,102 @@
+.contact-section {
+  width: calc(100% - #{$g-4});
+  max-width: g(150);
+  margin: $g-4 auto;
+
+  &__contact-list {
+    @include box;
+
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-basis: g(43);
+    flex-grow: 1;
+    margin: $g-2;
+    margin-right: 0;
+
+    &-image {
+      width: g(15);
+      height: g(15);
+      object-fit: cover;
+    }
+
+    &-detail {
+      @include t-body(0);
+      position: relative;
+
+      &--name {
+        @include t-heading(0);
+      }
+
+      &--role {
+        @include t-subheading(0);
+      }
+
+      &--email {
+        @include t-link(0);
+      }
+    }
+
+    &--padder {
+      @include margin-vertical(0);
+    }
+
+    > * + * {
+      margin-left: $g-2;
+    }
+  }
+
+  &__delete-contact {
+    @include t-body(0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+
+  &__start-call,
+  &__add-to-call {
+    @include t-subheading;
+    display: block;
+    background-color: $preco-gray;
+    color: white;
+    padding: $g-1 $g-2;
+    border-radius: 4px;
+    min-width: 100%;
+    margin-top: $g-1;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    transition-property: background-color, transform, opacity;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+
+    &:not(:disabled):hover {
+      background-color: $preco-red;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__contact:hover &__delete-contact {
+    opacity: 1;
+  }
+
+  small {
+    font-size: 0.9em;
+    color: $gray-6;
+  }
+}

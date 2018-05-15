@@ -1,1 +1,23 @@
-{{outlet}}
+<div class="app-layout">
+  <div class="app-layout__header">
+    {{preco-header}}
+  </div>
+
+  <div class="app-layout__body">
+    {{outlet}}
+  </div>
+
+  <div class="app-layout__footer">
+    <p>
+      {{#link-to 'home'}}
+        Wanna go home?
+      {{/link-to}}
+    </p>
+
+    <p>
+      {{#link-to 'chat'}}
+        Let's chat!
+      {{/link-to}}
+    </p>
+  </div>
+</div>

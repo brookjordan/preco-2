@@ -1,0 +1,31 @@
+.company-section {
+  width: calc(100% - #{$g-4});
+  max-width: g(150);
+  margin: $g-4 auto;
+  padding: 0 $g-4;
+
+  &__companies {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$g-2;
+    margin-right: -$g-2;
+  }
+
+  &__company {
+    flex-basis: g(43);
+    flex-grow: 1;
+    margin: $g-2;
+
+    &-detail {
+      @include t-body;
+
+      &--name {
+        @include t-heading;
+      }
+    }
+
+    &--padder {
+      @include margin-vertical(0);
+    }
+  }
+}

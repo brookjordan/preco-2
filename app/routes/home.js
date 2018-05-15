@@ -1,9 +1,18 @@
 import Route from '@ember/routing/route';
-import fetch from 'ember-fetch/ajax';
-import ENV from '../config/environment';
+import { inject as service } from '@ember/service';
+import { get } from '@ember/object';
 
 export default Route.extend({
-  async model() {
-    return await fetch(`${ ENV.BASE_URL }/ajax/people`);
+  mainHeaderToggle:  service(),
+
+  beforeModel() {
+    this._super(...arguments);
+    get(this, 'mainHeaderToggle').update({
+      showAfter: '#home-hello',
+    });
+  },
+
+  model() {
+    return this.get('store').query('person', {});
   },
 });

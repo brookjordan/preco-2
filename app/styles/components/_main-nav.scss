@@ -1,0 +1,25 @@
+.main-nav {
+  background-color: white;
+
+  &__nav-items {
+    display: flex;
+    width: calc(100% - #{ $g-4 });
+    max-width: g(147);
+    padding: 0 $g-3;
+    margin: 0 auto;
+  }
+
+  &__nav-item {
+    flex-grow: 1;
+    padding: $g-1 0;
+    line-height: $g-4;
+    font-family: $f-body;
+    font-size: $g-2;
+    text-align: center;
+    color: $navy;
+
+    & + & {
+      border-left: 1px solid $gray-6;
+    }
+  }
+}
