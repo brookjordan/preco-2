@@ -1,0 +1,15 @@
+<video class="video-container__video" autoplay></video>
+
+<div class="video-container__controls">
+  <button class="video-container__control video-container__control--switch-level" {{action "switchLevel"}}>
+    {{svg-icon (if peer.isPrimary "down" "up")}}
+  </button>
+
+  <button class="video-container__control video-container__control--hide-stream" {{action "toggleMuted"}}>
+    {{svg-icon (if peer.isMuted "muted" "unmuted")}}
+  </button>
+
+  <button class="video-container__control video-container__control--hide-stream" {{action "hideStream"}}>
+    {{svg-icon "hidden"}}
+  </button>
+</div>

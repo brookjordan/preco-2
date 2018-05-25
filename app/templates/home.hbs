@@ -1,21 +1,45 @@
-<h1 id="home-hello">
-  Hello,
-</h1>
+<div class="splash-screen">
+  <video class="splash-screen__image"
+          src="/images/shipping.mp4"
+          poster="/images/shipping.jpg"
+          autoplay loop></video>
+
+  <div class="splash-screen__overlay">
+    <h1 class="splash-screen__title" id="main_title">
+      {{preco-logo}}
+      Preco
+    </h1>
+    <p class="splash-screen__strap-line">Every box counts</p>
+  </div>
+</div>
 
 {{outlet}}
 
-<p>
-  We have so many people…
-</p>
+<h2 class="section-header">
+  Farm, Grow, Live
+</h2>
 
-<ul style="height: 200%">
-  {{#each model as |person|}}
-    <li>
-      {{#link-to 'home.person' person.id}}
-        {{ person.fullName }}
-      {{/link-to}}
-    </li>
-  {{else}}
-    <li>Lol, jowks!</li>
+<div class="project-section">
+  <h2 class="section-header" id="project-section">Projects</h2>
+
+  {{#each model.companies as |company|}}
+    <div class="project-section__project">
+      <a class="project-section__image-wrapper" href="http://www.euronordic.nl/" target="_blank">
+        <img class="project-section__image" src="{{ company.image }}">
+        <h3 class="project-section__title">{{ company.name }}</h3>
+      </a>
+
+      <div class="project-section__info">
+        <div class="project-section__links">
+          <a class="project-section__link" href="http://www.euronordic.nl/" target="_blank">
+            See the slideshow <i class="project-section__link-icon far fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   {{/each}}
-</ul>
+</div>
+
+<h2 class="section-header" id="contact-section">Contacts</h2>
+<div class="contact-section">
+</div>

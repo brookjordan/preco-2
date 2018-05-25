@@ -1,42 +1,61 @@
 .video-container {
   position: relative;
+  flex-basis: 0;
+  flex-grow: 1;
 
   &__video {
     display: block;
   }
 
   &__controls {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s,
+                transform 0.2s;
 
     > * {
       pointer-events: initial;
     }
-  }
 
-  &__switch-level-button {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(128,128,128,0.5);
-    opacity: 0;
-    transition: opacity 0.15s;
-
-    .videos__primary & {
-      top: auto;
-      bottom: 0;
+    .videos__secondary & {
+      align-items: flex-start;
     }
   }
 
-  &:hover &__switch-level-button {
+  &__control {
+    background: rgba(255,255,255,0.8);
+    opacity: 0;
+    transition: opacity 0.15s;
+    padding: 4px;
+    border-radius: 3px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.1s;
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    &:not(:first-child) {
+      margin-left: $g-1;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:hover  &__controls{
     opacity: 1;
+    transform: translateY(-$g-1);
   }
 
   video,
@@ -44,5 +63,9 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  &--self &__video {
+    transform: scaleX(-1);
   }
 }

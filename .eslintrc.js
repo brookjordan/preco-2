@@ -34,5 +34,10 @@ module.exports = {
         node: true
       }
     }
-  ]
+  ],
+  globals: {
+    attachMediaStream: false,
+    Skylink: false,
+    AdapterJS: false,
+  },
 };

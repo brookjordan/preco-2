@@ -1,33 +1,61 @@
-<main class="app__body">
-  <div class="chat-view">
-    <div class="chat-view__video-section">
-      <div class="videos">
-        <div id="primary-videos" class="videos__primary">
-          {{#each primaryVideos as |video|}}
-            {{!do stuff}}
-          {{/each}}
-        </div>
-
-        <div id="secondary-videos" class="videos__secondary">
-          {{#each secondaryVideos as |video|}}
-            {{!do stuff}}
-          {{/each}}
-        </div>
+<div class="chat-view">
+  <div class="chat-view__video-section">
+    <div class="videos">
+      <div id="primary-videos" class="videos__primary">
+        {{~#each skylink.primaryPeers as |peer|~}}
+          {{remote-video
+            peer=peer
+          }}
+        {{~/each~}}
       </div>
-    </div>
-    <div class="chat-view__text-section">
-      <div class="text-chat">
-        <div class="text-chat__own-cam" id="own_cam"><div class="videos__video-container video-container"><video autoplay="" id="_SELF_" class="video-container__video"></video><div class="video-container__controls"></div></div></div>
-        <div class="text-chat__chat-board" id="chat_board">
-          <p class="init"><span>Type below to start the conversation!</span></p>
-        </div>
-        <div class="text-chat__input-section">
-          <form id="chat_form" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;">
-            <input placeholder="Hit enter to send" type="text" id="chat_input" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-            <button style="display:none;"></button>
-          </form>
-        </div>
+
+      <div id="secondary-videos" class="videos__secondary">
+        {{~#each skylink.secondaryPeers as |peer|~}}
+          {{remote-video
+            peer=peer
+          }}
+        {{~/each~}}
       </div>
     </div>
   </div>
-</main>
+
+  <div class="chat-view__text-section">
+    <div class="text-chat">
+
+      <div class="text-chat__own-cam" id="own_cam">
+        {{local-video}}
+      </div>
+
+      <div class="text-chat__chat-board" id="chat_board">
+        <p class="init"><span>Type below to start the conversation!</span></p>
+      </div>
+
+      <div class="text-chat__input-section">
+        <form id="chat_form" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;">
+          <input placeholder="Hit enter to send" type="text" id="chat_input" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+          <button style="display:none;"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chat-options">
+  {{#each skylink.peers as |peer|}}
+    <div class="chat-options__peer" style="color:white;">
+      {{peer.id}}
+
+      <button class="chat-options__peer-option" type="button" style="background:white;" {{action "togglePeerMuted" peer.id}}>
+        {{svg-icon (if peer.isMuted 'muted' 'unmuted')}}
+      </button>
+
+      <button class="chat-options__peer-option" type="button" style="background:white;" {{action "togglePeerVisible" peer.id}}>
+        {{svg-icon (if peer.isVisible 'visible' 'hidden')}}
+      </button>
+
+      <button class="chat-options__peer-option" type="button" style="background:white;" {{action "togglePeerPrimary" peer.id}}>
+        {{svg-icon (if peer.isPrimary 'up' 'down')}}
+      </button>
+    </div>
+  {{/each}}
+</div>

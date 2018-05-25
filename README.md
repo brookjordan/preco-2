@@ -20,6 +20,10 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
+On first run, you'll probably want to migrate and seed the database with:
+* `yarn run migrate`
+* `yarn run seed`
+
 You'll need to run 2 servers:
 * The AJAX server to get data
 * The UI, Ember application

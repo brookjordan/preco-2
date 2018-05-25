@@ -1,9 +1,13 @@
-import DS from 'ember-data';
-
-const { Model, attr } = DS;
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
-  fullName: attr('string'),
-  age: attr('number'),
-  gender: attr('string'),
+  name: attr('string'),
+  role: attr('string'),
+  email: attr('string'),
+  thumb: attr('string'),
+  personNotes: attr('string'),
+
+  company: belongsTo('company'),
 });
