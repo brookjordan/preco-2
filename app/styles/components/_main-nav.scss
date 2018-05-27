@@ -17,6 +17,11 @@
     font-size: $g-2;
     text-align: center;
     color: $navy;
+    transition: background-color 0.15s;
+
+    &:hover {
+      background-color: $gray-8;
+    }
 
     & + & {
       border-left: 1px solid $gray-6;
