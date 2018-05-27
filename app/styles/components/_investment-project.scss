@@ -1,0 +1,110 @@
+.investment-project {
+  &__title {
+    @include t-heading;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: $g-2 $g-5;
+    color: white;
+    background-color: rgba(black, 0.5);
+    border-top-right-radius: 4px;
+    margin-top: 0;
+  }
+
+  &__image-wrapper {
+    display: block;
+    position: relative;
+    height: 0;
+    flex-shrink: 0;
+    padding-top: 50%;
+    background-size: cover;
+  }
+
+  &__image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    margin: 0 $g-5;
+  }
+
+  &__blurb p {
+    @include t-body;
+  }
+
+  &__links {
+    display: flex;
+    margin-top: $g-2;
+  }
+
+  &__link {
+    @include t-subheading;
+    color: $navy;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-left: $g-3;
+    }
+  }
+
+  &__link-icon {
+    display: inline-block;
+    transition: transform 0.15s;
+  }
+
+  &__link:hover &__link-icon {
+    transform: translateX(0.5em);
+  }
+}
+
+@media (min-width: 600px), (min-aspect-ratio: 5/3) {
+  .investment-project {
+    &__info,
+    &__image-wrapper {
+      flex-basis: 50%;
+    }
+
+    &__info {
+      min-width: 400px;
+    }
+
+    &__image-wrapper {
+      flex-shrink: 1;
+      padding-top: 0;
+      height: auto;
+    }
+
+    &__image {
+      position: static;
+      width: 100%;
+      height: auto;
+    }
+
+    &__title {
+      bottom: auto;
+      top: 0;
+      border-radius: 0;
+      border-bottom-right-radius: 4px;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+
+    &__blurb :first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@supports (backdrop-filter: blur(2px)) {
+  .investment-project__title {
+    backdrop-filter: blur(2px);
+  }
+}

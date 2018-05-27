@@ -12,8 +12,9 @@ marked.setOptions({
 });
 
 export default Component.extend({
+  classNames: ['mark-down'],
   generatedHtml: computed('markdown', function() {
-    return htmlSafe(marked(get(this, 'markdown') || ''));
+    return htmlSafe(marked(get(this, 'markdown').replace(/\n +/g, '\n') || ''));
   }),
 })
 .reopenClass({

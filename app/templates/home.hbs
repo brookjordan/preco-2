@@ -22,26 +22,152 @@
 <div class="project-section">
   <h2 class="section-header" id="project-section">Projects</h2>
 
-  {{#each model.companies as |company|}}
-    <div class="project-section__project">
-      <a class="project-section__image-wrapper" href="http://www.euronordic.nl/" target="_blank">
-        <img class="project-section__image" src="{{ company.image }}">
-        <h3 class="project-section__title">{{ company.name }}</h3>
+  {{#investment-project
+    class="project-section__project"
+    name="EuroNordic"
+    website="http://www.euronordic.nl/"
+    image="/images/company-temp/euronordic.jpg"
+  }}
+    {{mark-down "
+        Our flexible, trained and experienced professionals know the markets they are operating in. With all logistics disciplines in one organization, we are able to control your entire logistics chain. We are your partner for transports to Norway, agencies, forwarding, chartering, warehousing and more!
+
+        Our organization has a strong focus on safety, continuous improvement, proactive approach and optimal communication. Next to that, you should be able to rely on and trust your logistics partner. That is exactly why more and more companies have chosen Euro Nordic as their logistics service provider. Since 1999 we have been delivering exactly what we promised: the best direction for logistics!
+      "
+      class="investment-project__blurb"
+    }}
+
+    <div class="investment-project__links">
+      <a class="investment-project__link" href="http://www.euronordic.nl/" target="_blank">
+        Website <i class="investment-project__link-icon far fa-angle-right"></i>
       </a>
-
-      <div class="project-section__blurb">
-        {{mark-down company.description}}
-      </div>
-
-      <div class="project-section__info">
-        <div class="project-section__links">
-          <a class="project-section__link" href="http://www.euronordic.nl/" target="_blank">
-            See the slideshow <i class="project-section__link-icon far fa-angle-right"></i>
-          </a>
-        </div>
-      </div>
     </div>
-  {{/each}}
+  {{/investment-project}}
+
+  {{#investment-project
+    class="project-section__project"
+    name="Onego"
+    website="http://www.onego.nl/"
+    image="/images/company-temp/onego.jpg"
+  }}
+    {{mark-down "
+        Our principal activity is the chartering and operation of a cross-Atlantic fleet carrying cargoes for various prestigious clients and major world industries. Having direct contact with many industries and ship owners, our company carries extensive knowledge of the shipping market across international boundaries.
+
+        Our ability to respond quickly and effectively in a spot market due to the variety of tonnage in the service areas, as well as an extensive contractual portfolio, put us a step ahead of the competition. Our professionalism and experience, coupled with the utmost care and a tailor-made approach to each customer, have ensured many successful voyages for our clients.
+      "
+      class="investment-project__blurb"
+    }}
+
+    <div class="investment-project__links">
+      <a class="investment-project__link" href="http://www.onego.nl/" target="_blank">
+        Website <i class="investment-project__link-icon far fa-angle-right"></i>
+      </a>
+    </div>
+  {{/investment-project}}
+
+  {{#investment-project
+    class="project-section__project"
+    name="NorthSea Container Line"
+    website="https://ncl.no/"
+    image="/images/company-temp/northsea-container-line.jpg"
+  }}
+    {{mark-down "
+        We transport your cargo to and from your required destination within Europe. NCL is a complete logistics provider that operates vessels covering most of the Norwegian West-, Mid- and North-coast and central European hubs Hamburg, Bremerhaven and Rotterdam. We combine sea and land based transportation to secure efficient and cost effective transport door2door.  At NorthSea Container Line, we deliver great services accompanied by a competitive price. Our returning customers and partners enjoy a particularly fast response time and tailored solutions to accompany individual transport needs.
+      "
+      class="investment-project__blurb"
+    }}
+
+    <div class="investment-project__links">
+      <a class="investment-project__link" href="https://ncl.no/" target="_blank">
+        Website <i class="investment-project__link-icon far fa-angle-right"></i>
+      </a>
+    </div>
+  {{/investment-project}}
+
+  {{#investment-project
+    class="project-section__project"
+    name="Vinama"
+    website="http://thoresenvinama.com/"
+    image="/images/company-temp/vinama.jpg"
+  }}
+    {{mark-down "
+        We are a shipping-trading joint venture company working in Vietnam since 1993. Our main foreign shareholders are Thoresen Thai Agencies Bangkok, Elkem Chartering Oslo and Maritime 24 Singapore with local partner Vinama Agencies.
+
+        We have concentrated on project cargoes, crude oil import/export, and agricultural products and we are today one of the largest agency companies in Southern Vietnam with yearly approx. 600 vessel calls. In addition to agency and husbandry services we also offer a full service including crane drivers/lashing/cargo supervision for our principal’s vessels.
+      "
+      class="investment-project__blurb"
+    }}
+
+    <div class="investment-project__links">
+      <a class="investment-project__link" href="http://thoresenvinama.com/" target="_blank">
+        Website <i class="investment-project__link-icon far fa-angle-right"></i>
+      </a>
+    </div>
+  {{/investment-project}}
+
+  {{#investment-project
+    class="project-section__project"
+    name="Dyna Fyr"
+    website="https://www.dynafyr.no/"
+    image="/images/company-temp/dyna-fyr.jpg"
+  }}
+    {{mark-down "
+        Dyna Lighthouse is a unique venue located in the middle of the inner Oslo fjord. The lighthouse offers an outstanding dining experience and hosts events for up to 40 people.
+
+        The boat trip to the lighthouse takes around 25 minutes from the \"Kiss & Sail\" pier at Tjuvholmen. Our cuisine is based on the best from the ocean and use the best, in season materials.
+
+        This is to an intimate and distinctive experience: one of Oslo’s most spectacular landmarks.
+      "
+      class="investment-project__blurb"
+    }}
+
+    <div class="investment-project__links">
+      <a class="investment-project__link" href="https://www.dynafyr.no/" target="_blank">
+        Website <i class="investment-project__link-icon far fa-angle-right"></i>
+      </a>
+    </div>
+  {{/investment-project}}
+
+  {{#investment-project
+    class="project-section__project"
+    name="REC Group"
+    website="https://www.recgroup.com/"
+    image="/images/company-temp/rec-group.jpg"
+  }}
+    {{mark-down "
+        At a time where more than one billion people still don’t have access to electricity and the repercussions of climate change are already being experienced, now is the time to go solar.
+
+        REC’s combination of product quality, company reliability, and commitment to sustainability makes us the ideal brand for your solar investment, whether residential, commercial, or utility scale.
+      "
+      class="investment-project__blurb"
+    }}
+
+    <div class="investment-project__links">
+      <a class="investment-project__link" href="https://www.recgroup.com/" target="_blank">
+        Website <i class="investment-project__link-icon far fa-angle-right"></i>
+      </a>
+    </div>
+  {{/investment-project}}
+
+  {{#investment-project
+    class="project-section__project"
+    name="Elkem"
+    website="https://www.elkem.com/"
+    image="/images/company-temp/elkem.jpg"
+  }}
+    {{mark-down "
+        Elkem’s core expertise includes knowledge of controlling processes that involve very high temperatures and accurately determining the chemical content of materials so that they precisely match customer needs. Additionally, Elkem is a world leader when it comes to the production of carbonaceous materials, which is crucial when silicon is to be extracted from quartz. Elkem’s processes are energy intensive and efficient operations require a continuous focus on energy efficiency.
+
+        Since the company was formed in 1904 Elkem has developed a production technology for the purpose of improving operations. The most renowned invention is the Söderberg electrode from 1917. The electrode revolutionised the global smelting plant industry and provided Elkem with substantial patent revenue for a number of years.
+      "
+      class="investment-project__blurb"
+    }}
+
+    <div class="investment-project__links">
+      <a class="investment-project__link" href="https://www.elkem.com/" target="_blank">
+        Website <i class="investment-project__link-icon far fa-angle-right"></i>
+      </a>
+    </div>
+  {{/investment-project}}
 </div>
 
 <h2 class="section-header" id="contact-section">Contacts</h2>

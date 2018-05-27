@@ -19,7 +19,7 @@
   &__content {
     transform-origin: 50% 0;
     width: 100%;
-    padding: g($main-header-padding) $g-5;
+    padding: g($main-header-padding) 0;
     background-color: $gray-8;
 
     transition: transform 0.15s ease-in,
