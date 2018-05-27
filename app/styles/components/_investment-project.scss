@@ -18,6 +18,7 @@
     flex-shrink: 0;
     padding-top: 50%;
     background-size: cover;
+    overflow: hidden;
   }
 
   &__image {
@@ -28,6 +29,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: contrast(0.8);
+    will-change: transform, filter;
+    transition:
+      transform 0.5s ease-in-out,
+      filter 0.5s ease-in-out;
   }
 
   &__info {
@@ -53,13 +59,12 @@
     }
   }
 
-  &__link-icon {
-    display: inline-block;
-    transition: transform 0.15s;
-  }
-
-  &__link:hover &__link-icon {
-    transform: translateX(0.5em);
+  &__image-wrapper:hover &__image {
+    filter: contrast(1);
+    transform: scale(1.05);
+    transition:
+      transform 3s ease-in-out,
+      filter 1s ease-in-out;
   }
 }
 

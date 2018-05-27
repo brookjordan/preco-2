@@ -1,0 +1,47 @@
+.external-link {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+
+  &__underline,
+  &__chevron {
+    transition-duration: 0.08s;
+  }
+
+  &__underline {
+    position: absolute;
+    left: 0;
+    bottom: 1ex;
+    transform-origin: 0 100%;
+    transform: scaleX(0);
+    width: 100%;
+    border-bottom: 1px solid currentColor;
+    transition-property: transform;
+    transition-timing-function: ease-in;
+    will-change: transform;
+  }
+
+  &__chevron {
+    padding-bottom: 0.1ex;
+    transform: translateX(-0.5ex);
+    will-change: transform;
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+  }
+
+  &:hover & {
+    &__underline,
+    &__chevron {
+      transition-duration: 0.1s;
+    }
+
+    &__underline {
+      transform: scaleX(1);
+      transition-timing-function: ease-in;
+    }
+
+    &__chevron {
+      transform: translateX(0);
+    }
+  }
+}

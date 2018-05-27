@@ -28,6 +28,10 @@ module.exports = function(environment) {
     fastboot: {
       hostWhitelist: ['example.com', 'subdomain.example.com', /^localhost:\d+$/],
     },
+
+    fontawesome: {
+      defaultPrefix: 'fas',
+    },
   };
 
   if (environment === 'development') {

@@ -6,7 +6,9 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
     sassOptions: {
-      includePaths: [],
+      includePaths: [
+        'node_modules',
+      ],
       extension: 'scss',
     },
   });
