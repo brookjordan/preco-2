@@ -1,10 +1,26 @@
 <nav class="main-nav__nav-items">
-  <a href="#project-section" class="main-nav__nav-item">Projects</a>
-  <a href="#contact-section" class="main-nav__nav-item">Contacts</a>
+  <a href="#project-section" class="main-nav__nav-item">
+    {{fa-icon 'boxes'}}
+    Projects
+  </a>
+
+  <a href="#contact-section" class="main-nav__nav-item">
+    {{fa-icon 'users'}}
+    Contacts
+  </a>
+
   {{#if user.loggedIn}}
-    <a href="/icy-ewe" class="main-nav__nav-item">Open Chat</a>
-    <a href="/log-out" class="main-nav__nav-item">Log out</a>
+    <a href="/icy-ewe" class="main-nav__nav-item">
+      Open Chat
+    </a>
+    <a href="/log-out" class="main-nav__nav-item">
+      {{fa-icon 'sign-out-alt'}}
+      Log out
+    </a>
   {{else}}
-    <a href="/log-in" class="main-nav__nav-item">Log in</a>
+    <a href="/log-in" class="main-nav__nav-item">
+      {{fa-icon 'sign-in-alt'}}
+      Log in
+    </a>
   {{/if}}
 </nav>

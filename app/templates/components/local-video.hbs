@@ -2,11 +2,11 @@
 
 <div class="video-container__controls">
   {{#if peer.isSharingScreen}}
-    <button class="video-container__control video-container__control--share-screen" {{action 'stopSharingScreen'}}>
+    <button class="video-container__control video-container__control--share-screen" {{action "stopSharingScreen"}}>
       {{svg-icon "webcam"}}
     </button>
   {{else}}
-    <button class="video-container__control video-container__control--share-screen" {{action 'shareScreen'}}>
+    <button class="video-container__control video-container__control--share-screen" {{action "shareScreen"}}>
       {{svg-icon "sharescreen"}}
     </button>
   {{/if}}

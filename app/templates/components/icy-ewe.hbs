@@ -46,15 +46,15 @@
       {{peer.id}}
 
       <button class="chat-options__peer-option" type="button" style="background:white;" {{action "togglePeerMuted" peer.id}}>
-        {{svg-icon (if peer.isMuted 'muted' 'unmuted')}}
+        {{svg-icon (if peer.isMuted "muted" "unmuted")}}
       </button>
 
       <button class="chat-options__peer-option" type="button" style="background:white;" {{action "togglePeerVisible" peer.id}}>
-        {{svg-icon (if peer.isVisible 'visible' 'hidden')}}
+        {{svg-icon (if peer.isVisible "visible" "hidden")}}
       </button>
 
       <button class="chat-options__peer-option" type="button" style="background:white;" {{action "togglePeerPrimary" peer.id}}>
-        {{svg-icon (if peer.isPrimary 'up' 'down')}}
+        {{svg-icon (if peer.isPrimary "up" "down")}}
       </button>
     </div>
   {{/each}}
