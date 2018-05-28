@@ -16,6 +16,11 @@ module.exports = app => {
     next();
   });
 
+  addGetRoutes(app);
+  addPostRoutes(app);
+};
+
+function addGetRoutes(app) {
   let getPath = 'get';
   let files = fs.readdirSync(path.join(__dirname, getPath));
 
@@ -24,4 +29,15 @@ module.exports = app => {
     app.get(`/${ routeName }`, require(`./${ getPath }/${ file }`));
     app.get(`/${ routeName }/:id`, require(`./${ getPath }/${ file }`));
   });
-};
+}
+
+function addPostRoutes(app) {
+  let postPath = 'post';
+  let files = fs.readdirSync(path.join(__dirname, postPath));
+
+  files.forEach(file => {
+    let routeName = file.replace(/\.js$/, '');
+    app.post(`/${ routeName }`, require(`./${ postPath }/${ file }`));
+    app.post(`/${ routeName }/:id`, require(`./${ postPath }/${ file }`));
+  });
+}

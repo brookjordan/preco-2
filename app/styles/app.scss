@@ -4,6 +4,7 @@
 @import "./settings/sizing.scss";
 
 // Tools: @import "./tools/";
+@import "./tools/z-index.scss";
 @import "./tools/sizing.scss";
 @import "./tools/text.scss";
 @import "./tools/box.scss";
@@ -13,8 +14,11 @@
 @import "./elements/resets";
 @import "./elements/base";
 
+// Components @import "./object/";
+@import "./object/app-structure";
+@import "./object/modal-dialogue";
+
 // Components @import "./components/";
-@import "./components/app-structure";
 @import "./components/chat-view";
 @import "./components/company-section";
 @import "./components/contact-section";
@@ -34,6 +38,8 @@
 @import "./components/investment-project";
 @import "./components/external-link";
 @import "./components/svg-definitions";
+@import "./components/input-field";
+@import "./components/field-set";
 
 // Components @import "./utilities/";
 

@@ -1,0 +1,31 @@
+<label class="input-field__label" for={{inputID}}>
+  {{ label }}
+</label>
+
+<div class="input-field__value-container">
+  <div class="input-field__value">
+    {{input
+      class="input-field__input"
+      type=type
+      value=value
+      id=inputID
+      placeholder=placeholder
+
+      focusOut=(action 'focusOut')
+      keyUp=(action 'keyUp')
+      required=true
+    }}
+  </div>
+
+  {{#if isValid}}
+    <label class="input-field__icon input-field__icon--valid" for={{inputID}} role="presentation">
+      {{fa-icon 'check-circle'}}
+    </label>
+  {{/if}}
+
+  {{#if isInvalid}}
+    <label class="input-field__icon input-field__icon--invalid" for={{inputID}} role="presentation">
+      {{fa-icon 'times-circle'}}
+    </label>
+  {{/if}}
+</div>

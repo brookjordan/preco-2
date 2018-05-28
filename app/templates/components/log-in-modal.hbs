@@ -1,0 +1,27 @@
+{{#modal-dialogue}}
+  <form
+    action=""
+    class="log-in-form"
+    style="
+      width: 80vw;
+      max-width: 400px;
+      min-width: 300px;
+    "
+  >
+    {{#field-set "Log in"}}
+      {{input-field
+        label="Email"
+        value=""
+        type="email"
+        placeholder="name@company.com"
+      }}
+
+      {{input-field
+        label="Password"
+        value=""
+        placeholder="my-hard-to-guess-password"
+        type="password"
+      }}
+    {{/field-set}}
+  </form>
+{{/modal-dialogue}}

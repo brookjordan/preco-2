@@ -14,6 +14,7 @@ export default Route.extend({
   },
 
   model() {
+    debugger;
     return RSVP.hash({
       people: this.get('store').query('person', {}),
       companies: this.get('store').query('company', {}),

@@ -1,0 +1,24 @@
+.modal-dialogue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: z-index(modal);
+  width: 100%;
+  height: 100%;
+
+  &__backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, 0.5);
+  }
+
+  &__content {
+    position: relative;
+    background-color: $gray-9;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,22 @@
+$z-index-layers: (
+  field-label,
+  dropdown,
+  tooltip,
+  modal,
+);
+
+$max-z-index-value: 2147483647;
+$z-index-layer-height: floor($max-z-index-value / (length($z-index-layers) + 1));
+
+$z-index-values: ();
+
+@each $layer-name in $z-index-layers {
+  $layer-index: index($z-index-layers, $layer-name);
+  $z-index-values: join($z-index-values, ($layer-index * $z-index-layer-height));
+}
+
+@function z-index($layer-name) {
+  $layer-index: index($z-index-layers, $layer-name);
+  @warn($layer-index);
+  @return nth($z-index-values, $layer-index);
+}

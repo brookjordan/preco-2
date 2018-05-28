@@ -1,0 +1,8 @@
+.field-set {
+  margin: $g-4 $g-5;
+
+  &__legend {
+    @include t-heading;
+    margin-top: 0;
+  }
+}
