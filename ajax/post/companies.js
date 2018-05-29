@@ -1,8 +1,10 @@
-module.exports = (req, res, next) => {
-  console.log(req);
-  res.send({
-    data: {
-      added: 'person',
-    },
-  });
-};
+let postBuilder = require('../post-builder');
+
+const WHITELIST_ATTRIBUTES = [
+  'name',
+  'notes',
+];
+
+module.exports = postBuilder('companies', {
+  WHITELIST_ATTRIBUTES,
+});

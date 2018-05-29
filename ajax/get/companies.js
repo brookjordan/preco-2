@@ -1,4 +1,4 @@
-let queryBuilder = require('../query-builder');
+let getBuilder = require('../get-builder');
 
 const BLACKLIST_ATTRIBUTES = [
   'id',
@@ -6,6 +6,6 @@ const BLACKLIST_ATTRIBUTES = [
   'display',
 ];
 
-module.exports = queryBuilder('company', {
+module.exports = getBuilder('companies', {
   BLACKLIST_ATTRIBUTES,
 });
