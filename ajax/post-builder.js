@@ -5,8 +5,8 @@ let jsonAPI = require('./json-api');
 let whitelist = require('./whitelist-object');
 let whitelists = require('./whitelists');
 
-module.exports = function() {
-  return async function(req, res, next) {
+module.exports = () => {
+  return async (req, res, next) => {
     let data = req.body.data;
 
     if (!data || !data.type || !data.attributes) { throw noPayloadError(res); }

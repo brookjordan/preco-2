@@ -3,23 +3,27 @@ module.exports = {
 
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
   },
 
   plugins: [
-    'ember'
+    'ember',
   ],
 
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
   ],
 
   env: {
-    browser: true
+    browser: true,
   },
 
   rules: {
+    'no-unused-vars': [ 'error', {
+      vars: 'all',
+      args: 'none',
+    }],
   },
 
   overrides: [
@@ -29,17 +33,19 @@ module.exports = {
         'testem.js',
         'ember-cli-build.js',
         'config/**/*.js',
-        'lib/*/index.js'
+        'lib/*/index.js',
+        'fastbook-server.js',
+        'ajax/**/*.js',
       ],
       parserOptions: {
         sourceType: 'script',
-        ecmaVersion: 2015
+        ecmaVersion: 2018,
       },
       env: {
         browser: false,
-        node: true
-      }
-    }
+        node: true,
+      },
+    },
   ],
 
   globals: {

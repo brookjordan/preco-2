@@ -1,8 +1,8 @@
 let JsonAPI = require('./json-api');
 let getData = require('./get-data');
 
-module.exports = function(type) {
-  return async function(req, resp) {
+module.exports = (type) => {
+  return async (req, resp) => {
     if (req.params && req.params.id) {
       let entry = await getData(type, req.params.id);
 
