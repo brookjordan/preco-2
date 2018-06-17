@@ -1,10 +1,10 @@
 let JsonAPI = require('./json-api');
-let getData = require('./get-data');
+let dbGet   = require('./db-get');
 
 module.exports = (type) => {
   return async (req, resp) => {
     if (req.params && req.params.id) {
-      let entry = await getData(type, req.params.id);
+      let entry = await dbGet[type].byID(req.params.id);
 
       if (entry) {
         resp.status(200);
@@ -22,7 +22,7 @@ module.exports = (type) => {
         });
       }
     } else {
-      let data = await getData.byType(type);
+      let data = await dbGet[type].all({ limit: 20 });
       resp.status(200);
       resp.send({
         data: JsonAPI.toJSON(type, data),
