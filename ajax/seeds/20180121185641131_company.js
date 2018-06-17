@@ -23,7 +23,7 @@ exports.seed = function(knex, Promise) {
       uuid           : companyHash,
       name           : 'Preco',
       display        : true,
-      address_line_1 : 'Preco lane',
+      address_line1 : 'Preco lane',
       country        : 'Norway',
       city           : 'Oslo',
       image          : '/assets/images/preco.jpg',

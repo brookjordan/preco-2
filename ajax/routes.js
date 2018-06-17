@@ -7,7 +7,7 @@ let CORS_WHITELIST = [
 ];
 
 module.exports = app => {
-  app.use(function(req, resp, next) {
+  app.use((req, resp, next) => {
     resp.header('Content-Type', 'application/json');
     if (CORS_WHITELIST.includes(req.headers.origin)) {
       resp.header('Access-Control-Allow-Origin', req.headers.origin);

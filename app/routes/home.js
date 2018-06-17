@@ -14,10 +14,11 @@ export default Route.extend({
   },
 
   model() {
-    debugger;
+    let store = window.store = this.get('store');
+
     return RSVP.hash({
-      people: this.get('store').query('person', {}),
-      companies: this.get('store').query('company', {}),
+      people: store.query('person', {}),
+      companies: store.query('company', {}),
     });
   },
 });

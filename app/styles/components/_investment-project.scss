@@ -32,7 +32,7 @@
     filter: contrast(0.8);
     will-change: transform, filter;
     transition:
-      transform 0.5s ease-in-out,
+      transform 0.5s cubic-bezier(.2,0,.2,1),
       filter 0.5s ease-in-out;
   }
 
@@ -62,9 +62,9 @@
   &__image-wrapper:hover &__image {
     filter: contrast(1);
     transform: scale(1.05);
-    transition:
-      transform 2s ease-in-out,
-      filter 0.5s ease-in-out;
+    transition-duration:
+      4s,   // transform
+      0.5s; // filter
   }
 }
 

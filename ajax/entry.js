@@ -5,6 +5,7 @@ let initRoutes = require('./routes');
 app.use(express.json({
   type: [
     'application/vnd.api+json',
+    'application/x-www-form-urlencoded',
   ],
 }));
 

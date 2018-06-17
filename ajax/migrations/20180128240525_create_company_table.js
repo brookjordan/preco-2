@@ -4,7 +4,8 @@ exports.up = function(knex, Promise) {
     table.timestamps(false, true);
 
     table.boolean('display')
-         .notNullable();
+         .notNullable()
+         .defaultTo(false);
     table.string('name', pow(8))
          .notNullable();
     table.string('website', pow(8));

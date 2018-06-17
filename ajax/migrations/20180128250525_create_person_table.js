@@ -4,8 +4,10 @@ exports.up = function(knex, Promise) {
     table.timestamps(false, true);
 
     table.boolean('display')
+         .defaultTo(false)
          .notNullable();
     table.boolean('admin')
+         .defaultTo(false)
          .notNullable();
     table.boolean('super_admin')
          .defaultTo(false)
@@ -25,7 +27,7 @@ exports.up = function(knex, Promise) {
          .notNullable();
 
     table.string('company_uuid', pow(6))
-         .notNullable();
+         //.notNullable();
   });
 };
 

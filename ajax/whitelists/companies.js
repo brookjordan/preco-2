@@ -1,0 +1,15 @@
+module.exports = {
+  name: true,
+  website: true,
+  address_line1: true,
+  address_line2: true,
+  address_line3: true,
+  address_line4: true,
+  city: true,
+  region: true,
+  postcode: true,
+  country: true,
+  description: true,
+  image: true,
+  uuid: true,
+};

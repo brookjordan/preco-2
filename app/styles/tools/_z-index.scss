@@ -17,6 +17,5 @@ $z-index-values: ();
 
 @function z-index($layer-name) {
   $layer-index: index($z-index-layers, $layer-name);
-  @warn($layer-index);
   @return nth($z-index-values, $layer-index);
 }

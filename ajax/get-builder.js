@@ -1,18 +1,15 @@
-let db = require('./db');
-let Inflector = require('inflector-js');
+let JsonAPI = require('./json-api');
+let getData = require('./get-data');
 
-module.exports = function(typeMultiple, {
-  BLACKLIST_ATTRIBUTES = [],
-} = {}) {
-  let type = Inflector.singularize(typeMultiple);
-
+module.exports = function(type) {
   return async function(req, resp) {
     if (req.params && req.params.id) {
-      let entry = await db.select('*').from(type).where('uuid', req.params.id).limit(1).first();
+      let entry = await getData(type, req.params.id);
+
       if (entry) {
         resp.status(200);
         resp.send({
-          data: dataize(typeMultiple, entry),
+          data: JsonAPI.toJSON(type, entry),
         });
       } else {
         resp.status(404);
@@ -25,26 +22,11 @@ module.exports = function(typeMultiple, {
         });
       }
     } else {
+      let data = await getData.byType(type);
       resp.status(200);
       resp.send({
-        data: dataizeArray(typeMultiple, await db.select('*').from(type)),
+        data: JsonAPI.toJSON(type, data),
       });
     }
   };
-
-  function dataizeArray(type, entries) {
-    return entries.map(entry => dataize(type, entry));
-  }
-
-  function dataize(type, entry) {
-    return {
-      type,
-      id: entry.uuid || entry.id,
-      attributes: Object.keys(entry).reduce((acc, key) => {
-        if (BLACKLIST_ATTRIBUTES.includes(key)) { return acc; }
-        acc[key] = entry[key];
-        return acc;
-      }, {}),
-    }
-  }
 };
