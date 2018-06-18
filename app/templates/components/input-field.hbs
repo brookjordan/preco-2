@@ -6,7 +6,7 @@
   <div class="input-field__value">
     {{input
       class="input-field__input"
-      type=type
+      type=_type
       value=value
       id=inputID
       placeholder=placeholder
@@ -17,15 +17,30 @@
     }}
   </div>
 
-  {{#if isValid}}
-    <label class="input-field__icon input-field__icon--valid" for={{inputID}} role="presentation">
-      {{fa-icon 'check-circle'}}
+  {{#if (or isValid isInvalid)}}
+    <label
+      class="input-field__icon input-field__icon--{{if isValid "valid" "invalid"}}"
+      for={{inputID}}
+      role="presentation"
+    >
+      {{#if isInvalid}}
+        {{fa-icon 'times-circle'}}
+      {{else}}
+        {{fa-icon 'check-circle'}}
+      {{/if}}
     </label>
   {{/if}}
 
-  {{#if isInvalid}}
-    <label class="input-field__icon input-field__icon--invalid" for={{inputID}} role="presentation">
-      {{fa-icon 'times-circle'}}
+  {{#if (eq type "password")}}
+    <label class="input-field__show-password">
+      {{input
+        class="input-field__show-password-checkbox"
+        type="checkbox"
+        checked=showPassword
+      }}
+      <abbr title="Show password" class="input-field__show-password-icon">
+        {{fa-icon (if showPassword 'eye' 'eye-slash')}}
+      </abbr>
     </label>
   {{/if}}
 </div>

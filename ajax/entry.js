@@ -1,6 +1,10 @@
 let express = require('express');
 let app = express();
 let initRoutes = require('./routes');
+let passport = require('./config/passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.json({
   type: [

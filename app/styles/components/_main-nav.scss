@@ -17,10 +17,12 @@
     font-size: $g-2;
     text-align: center;
     color: $navy;
+    cursor: pointer;
     transition: background-color 0.15s;
 
     &:hover {
       background-color: $gray-8;
+      text-decoration: underline;
     }
 
     & + & {

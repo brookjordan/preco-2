@@ -8,17 +8,70 @@
   z-index: z-index(modal);
   width: 100%;
   height: 100%;
+  pointer-events: none;
 
   &__backdrop {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(black, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 
   &__content {
     position: relative;
     background-color: $gray-9;
-    border-radius: 5px;
+    border-radius: 4px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition:
+      transform 0.2s cubic-bezier(.2,0,.4,-0.5),
+      opacity 0.2s;
+  }
+
+  &__close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -$g-1;
+    top: -$g-1;
+    width: $g-6;
+    height: $g-6;
+    background: $gray-9;
+    color: $gray-3;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba($gray-3, 0);
+    will-change: transform, box-shadow;
+    transition:
+      transform 0.2s ease-out,
+      box-shadow 0.2s ease-out;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 1px 0 1.2px rgba($gray-3, 0.2);
+    }
+  }
+
+  &--open {
+    pointer-events: auto;
+  }
+
+  &--open & {
+
+    &__backdrop{
+      opacity: 1;
+    }
+
+    &__content {
+      transform: translateY(0);
+      opacity: 1;
+      transition:
+        transform 0.2s cubic-bezier(.6,1.5,.8,1),
+        opacity 0.3s;
+    }
   }
 }

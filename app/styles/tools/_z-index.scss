@@ -1,8 +1,12 @@
 $z-index-layers: (
+  header,
   field-label,
   dropdown,
   tooltip,
+  modal-backdrop,
+  under-modal,
   modal,
+  over-modal,
 );
 
 $max-z-index-value: 2147483647;

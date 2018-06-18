@@ -1,0 +1,19 @@
+@mixin form-field {
+  @include t-body;
+  @include form-field-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $gray-4;
+  border-radius: $g-1 / 2;
+}
+
+@mixin form-field-border {
+  border: 1px solid $gray-4;
+  border-radius: $g-1 / 2;
+}
+
+@mixin form-field-padding {
+  padding: $g-1 $g-2;
+}
+

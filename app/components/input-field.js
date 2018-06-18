@@ -8,11 +8,18 @@ export default Component.extend({
     'isInvalid:input-field--invalid',
   ],
   wasBlurred: false,
+  showPassword: false,
   type: 'text',
   hideLabel: false,
   showValidation: true,
   inputID: computed(function() {
     return `input-field--${ window.Ember.uuid() }`;
+  }),
+
+  _type: computed('type', 'showPassword', function() {
+    return get(this, 'showPassword')
+      ? 'text'
+      : get(this, 'type');
   }),
 
   setValidity() {

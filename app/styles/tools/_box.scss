@@ -1,4 +1,4 @@
 @mixin box {
   background: white;
-  border-radius: 4px;
+  border-radius: $g-1 / 2;
 }
