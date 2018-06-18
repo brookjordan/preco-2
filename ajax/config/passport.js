@@ -32,13 +32,12 @@ passport.use('local-login',
     passReqToCallback : true
   },
   async (req, email, password, done) => {
-    let person = await dbGet.person.byEmail(email);
+    let person = await dbGet.people.byEmail(email, { filter: false });
 
-    if (!person) { return done(null, false); }
+    if (!person) { return done(null, false, 'User does not exist'); }
     let passwordIsCorrect = await bcrypt.compare((password || ''), person.password);
     if (!passwordIsCorrect) {
-      req.flash('error', "That's not your password.");
-      return done(null, false);
+      return done(null, false, 'Wrong password');
     }
 
     // all is well, return successful user

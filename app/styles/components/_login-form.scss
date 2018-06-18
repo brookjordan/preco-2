@@ -2,4 +2,9 @@
   width: 80vw;
   max-width: 500px;
   min-width: 300px;
+
+  &__error {
+    @include t-body;
+    color: $preco-red;
+  }
 }

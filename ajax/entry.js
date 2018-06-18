@@ -10,6 +10,7 @@ app.use(express.json({
   type: [
     'application/vnd.api+json',
     'application/x-www-form-urlencoded',
+    'application/json',
   ],
 }));
 

@@ -18,8 +18,8 @@ const getFunctions = Object.keys(whitelists).reduce((acc, modelType) => {
       return byID(modelType, ID);
     },
 
-    byEmail(email) {
-      return byEmail(modelType, email);
+    byEmail(email, options) {
+      return byEmail(modelType, email, options);
     },
   };
 
@@ -29,23 +29,29 @@ const getFunctions = Object.keys(whitelists).reduce((acc, modelType) => {
 module.exports = getFunctions;
 
 async function byID(type, ID) {
+  let err;
   let keys = Object.keys(whitelists[type]);
-
-  return db.select(...keys)
+  let entry = await db.select(...keys)
     .from(Pluralize.singular(type))
     .where('uuid', ID)
     .limit(1)
-    .first();
+    .first()
+    .catch(e => { err = e; });
+
+  return err || entry;
 }
 
-async function byEmail(type, email) {
+async function byEmail(type, email, { filter = true } = {}) {
+  let err;
   let keys = Object.keys(whitelists[type]);
-
-  return db.select(...keys)
-    .from(type)
+  let entry = await db.select(...(filter ? keys : ['*']))
+    .from(Pluralize.singular(type))
     .where('email', email)
     .limit(1)
-    .first();
+    .first()
+    .catch(e => { err = e; });
+
+  return err || entry;
 }
 
 async function byType(type, limit = 20) {

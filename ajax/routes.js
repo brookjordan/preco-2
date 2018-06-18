@@ -1,5 +1,6 @@
 let fs = require('fs');
 let path = require('path');
+let passport = require('./config/passport');
 
 let CORS_WHITELIST = [
   'http://localhost:4200',
@@ -15,6 +16,24 @@ module.exports = app => {
     }
     next();
   });
+
+  app.post('/log-in',
+    (req, res, next) => {
+      passport.authenticate('local-login', (err, user, info) => {
+        if (err) {
+          res.status(401);
+          return res.send({ errors: [err] });
+        }
+        if (!user) {
+          res.status(401);
+          return res.send({ errors: [info || 'Authentication error'] });
+        }
+
+        res.status(200);
+        return res.send({ data: 'Done' });
+      })(req, res, next);
+    },
+  );
 
   addGetRoutes(app);
   addPostRoutes(app);

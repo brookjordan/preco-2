@@ -5,6 +5,7 @@ export default Service.extend({
   modalOpen: false,
   isLoggedIn: readOnly('user.isLoggedIn'),
   user: service(),
+  errors: null,
   toggleModal() {
     this.toggleProperty('modalOpen');
   },
